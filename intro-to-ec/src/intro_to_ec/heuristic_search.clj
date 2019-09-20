@@ -17,11 +17,16 @@
   {:get-next-node rand-nth
    :add-children concat})
 
+(def heuristic-search
+  {:get-next-node first
+   :add-children concat})
+
 (defn generate-path
   [came-from node]
   (if (= :start-node (get came-from node))
     [node]
     (conj (generate-path came-from (get came-from node)) node)))
+
 
 (defn search
   [{:keys [get-next-node add-children]}
@@ -47,5 +52,6 @@
            (inc num-calls)))))))
 
 (defn heuristic [a b]
-  ((+ (- (first a) (first b)) (- (second a) (second b))))
-  )
+  (+ (- (first a) (first b)) (- (second a) (second b))))
+(defn p
+  (println (priority-map :a 1 :b 2)))
