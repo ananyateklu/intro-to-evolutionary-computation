@@ -57,6 +57,10 @@
       [x -1])
     [[2 0]])))
 
+(defn heuristic-dist-to-goal [current goal]
+  (+ (Math/abs (- (get current 0)(get goal 0)))
+     (Math/abs (- (get current 0)(get goal 0)))))
+
 (defn make-grid-problem
   "Create an instance of a simple problem of moving on a grid towards
    the origin. The ranges specify the bounds on the grid world, and the
