@@ -1,5 +1,6 @@
 (ns intro-to-ec.heuristic-search
-  (:require [clojure.set :as cset]))
+  (:require [clojure.set :as cset]
+            [clojure.data.priority-map :as pm]))
 
 (defn remove-previous-states
   [new-states frontier visited]
@@ -50,8 +51,3 @@
             (rest frontier))
            (reduce (fn [cf child] (assoc cf child current-node)) came-from kids)
            (inc num-calls)))))))
-
-(defn heuristic [a b]
-  (+ (- (first a) (first b)) (- (second a) (second b))))
-(defn p
-  (println (priority-map :a 1 :b 2)))
