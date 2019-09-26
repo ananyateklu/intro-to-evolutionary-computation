@@ -20,7 +20,7 @@
 
 (def heuristic-search
   {:get-next-node first
-   :add-children concat})
+   :add-children into})
 
 (defn generate-path
   [came-from node]
@@ -31,11 +31,13 @@
 
 (defn search
   [{:keys [get-next-node add-children]}
-   {:keys [goal? make-children]}
-   start-node max-calls]
-  (loop [frontier [start-node]
-         came-from {start-node :start-node}
-         num-calls 0]
+   {:keys [goal? make-children heuristic]}
+   start-node
+   max-calls
+   goal]
+  (loop [frontier (pm/priority-map start-node (heuristic start-node goal)),
+         came-from {start-node :start-node},
+         num-calls 0 ]
     (println num-calls ": " frontier)
     (println came-from)
     (let [current-node (get-next-node frontier)]
@@ -46,8 +48,7 @@
         (let [kids (remove-previous-states
                     (make-children current-node) frontier (keys came-from))]
           (recur
-           (add-children
-            kids
-            (rest frontier))
-           (reduce (fn [cf child] (assoc cf child current-node)) came-from kids)
-           (inc num-calls)))))))
+           (add-children (pop frontier) kids),
+           (reduce (fn [cf child] (assoc cf child current-node)) came-from kids),
+           (inc num-calls)
+            ))))))

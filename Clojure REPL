@@ -21,132 +21,72 @@ bash: module: line 1: syntax error: unexpected end of file
 bash: error importing function definition for `module'
 bash: scl: line 1: syntax error: unexpected end of file
 bash: error importing function definition for `scl'
-nREPL server started on port 37595 on host 127.0.0.1 - nrepl://127.0.0.1:37595
+nREPL server started on port 34263 on host 127.0.0.1 - nrepl://127.0.0.1:34263
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
 :reloading (intro-to-ec.search-with-solutions intro-to-ec.knapsack intro-to-ec.core intro-to-ec.core-test intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
 :error-while-loading intro-to-ec.heuristic-search
-Syntax error macroexpanding clojure.core/defn at (intro_to_ec/heuristic_search.clj:20:1).
+Syntax error macroexpanding clojure.core/defn at (intro_to_ec/heuristic_search.clj:56:1).
 Refresh complete
-(intro-to-ec.heuristic-search/search intro-to-ec.heuristic-search/depth-first-search (intro-to-ec.grid-problem-with-walls/make-grid-problem 0 5 #{}) [3 3] 100)
-Execution error (ClassNotFoundException) at java.net.URLClassLoader/findClass (URLClassLoader.java:382).
-intro-to-ec.heuristic-search
-(intro-to-ec.heuristic-search/search intro-to-ec.heuristic-search/depth-first-search (intro-to-ec.grid-problem-with-walls/make-grid-problem 0 5 #{}) [3 3] 100)
-Execution error (ClassNotFoundException) at java.net.URLClassLoader/findClass (URLClassLoader.java:382).
-intro-to-ec.heuristic-search
-use intro-to-ec.heuristic-search as->hs
-Syntax error (ClassNotFoundException) compiling at (form-init2789608148986726671.clj:1:1).
-intro-to-ec.heuristic-search
 (require '[intro-to-ec.heuristic-search :as hs])
-Syntax error compiling at (form-init2789608148986726671.clj:1:1).
+Syntax error compiling at (form-init2792242459943764922.clj:1:1).
 namespace 'intro-to-ec.heuristic-search' not found
-(require '[intro-to-ec.heuristic-search :as hs]')
-Syntax error reading source at (REPL:1:50).
-Unmatched delimiter: )
-(require '[intro-to-ec.heuristic_search :as hs])
-Syntax error macroexpanding clojure.core/defn at (heuristic_search.clj:20:1).
-() - failed: Insufficient input at: [:fn-tail] spec: :clojure.core.specs.alpha/defn-args
-(require '[intro-to-ec.heuristic-search :as hs])
-user=>
-nil
-(require '[intro-to-ec.grid-problem-with-walls :as walls])
-user=>
-nil
-(hs/search hs/depth-first-search (walls/make-grid-problem 0 5 #{}) [3 3] 100)
-Syntax error compiling at (form-init2789608148986726671.clj:1:5).
-No such var: hs/search
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
 :reloading (intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
 :error-while-loading intro-to-ec.heuristic-search
-Syntax error macroexpanding clojure.core/defn at (intro_to_ec/heuristic_search.clj:20:1).
+Syntax error macroexpanding clojure.core/defn at (intro_to_ec/heuristic_search.clj:56:1).
 Refresh complete
-(hs/search hs/depth-first-search (walls/make-grid-problem 0 5 #{}) [3 3] 100)
-Syntax error compiling at (form-init2789608148986726671.clj:1:5).
-No such var: hs/search
-(intro-to-ec.heuristic-search/search hs/depth-first-search (walls/make-grid-problem 0 5 #{}) [3 3] 100)
-Execution error (ClassNotFoundException) at java.net.URLClassLoader/findClass (URLClassLoader.java:382).
-intro-to-ec.heuristic-search
-(hs/search hs/depth-first-search (walls/make-grid-problem 0 5 #{}) [3 3] 100)
-Syntax error compiling at (form-init2789608148986726671.clj:1:5).
-No such var: hs/search
-(hs/search hs/depth-first-search (walls/make-grid-problem 0 5 #{}) [3 3] 100)
-Syntax error compiling at (form-init2789608148986726671.clj:1:5).
-No such var: hs/search
-(ns-aliases 'user)
-user=>
-{hs #object[clojure.lang.Namespace 0x3fa60f80 "intro-to-ec.heuristic-search"], walls #object[clojure.lang.Namespace 0x4b4cbee7 "intro-to-ec.grid-problem-with-walls"]}
-(hs/search hs/depth-first-search (walls/make-grid-problem 0 5 #{}) [3 3] 100)
-Syntax error compiling at (form-init2789608148986726671.clj:1:5).
-No such var: hs/search
-Clearing all and then refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (intro-to-ec.search-with-solutions intro-to-ec.knapsack intro-to-ec.core intro-to-ec.core-test intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
-:error-while-loading intro-to-ec.heuristic-search
-Syntax error macroexpanding clojure.core/defn at (intro_to_ec/heuristic_search.clj:20:1).
-Refresh complete
-(hs/search hs/depth-first-search (walls/make-grid-problem 0 5 #{}) [3 3] 100)
-Syntax error compiling at (form-init2789608148986726671.clj:1:5).
-No such var: hs/search
-(require '[intro-to-ec.heuristic-search :as hs])
-Syntax error compiling at (form-init2789608148986726671.clj:1:1).
-namespace 'intro-to-ec.heuristic-search' not found
-Stopping REPL
-REPL Closed
-Starting REPL with lein in /home/teklu009/intro-to-evolutionary-computation/intro-to-ec
-bash: switchml: line 1: syntax error: unexpected end of file
-bash: error importing function definition for `switchml'
-bash: module: line 1: syntax error: unexpected end of file
-bash: error importing function definition for `module'
-bash: scl: line 1: syntax error: unexpected end of file
-bash: error importing function definition for `scl'
-nREPL server started on port 38869 on host 127.0.0.1 - nrepl://127.0.0.1:38869
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (intro-to-ec.search-with-solutions intro-to-ec.knapsack intro-to-ec.core intro-to-ec.core-test intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
+:reloading (intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
 :error-while-loading intro-to-ec.heuristic-search
-Syntax error macroexpanding clojure.core/defn at (intro_to_ec/heuristic_search.clj:20:1).
+Syntax error compiling at (intro_to_ec/heuristic_search.clj:57:7).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
+:error-while-loading intro-to-ec.heuristic-search
+Syntax error compiling at (intro_to_ec/heuristic_search.clj:57:8).
 Refresh complete
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
 :reloading (intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
 Refresh complete
-Clearing all and then refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (intro-to-ec.search-with-solutions intro-to-ec.knapsack intro-to-ec.core intro-to-ec.core-test intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
-Refresh complete
 (require '[intro-to-ec.heuristic-search :as hs])
 user=>
 nil
 (require '[intro-to-ec.grid-problem-with-walls :as walls])
 user=>
 nil
-(hs/search hs/depth-first-search (walls/make-grid-problem 0 5 #{}) [3 3] 100)
-0 :  [[3 3]]
-{[3 3] :start-node}
-1 :  ([3 4] [3 2] [2 3] [4 3])
-{[3 3] :start-node, [3 4] [3 3], [3 2] [3 3], [2 3] [3 3], [4 3] [3 3]}
-2 :  ([2 4] [4 4] [3 2] [2 3] [4 3])
-{[3 3] :start-node, [3 4] [3 3], [3 2] [3 3], [2 3] [3 3], [4 3] [3 3], [2 4] [3 4], [4 4] [3 4]}
-3 :  ([1 4] [4 4] [3 2] [2 3] [4 3])
-{[3 3] :start-node, [3 4] [3 3], [3 2] [3 3], [2 3] [3 3], [4 3] [3 3], [2 4] [3 4], [4 4] [3 4], [1 4] [2 4]}
-4 :  ([1 3] [0 4] [4 4] [3 2] [2 3] [4 3])
-{[4 3] [3 3], [2 3] [3 3], [3 3] :start-node, [3 4] [3 3], [1 4] [2 4], [1 3] [1 4], [2 4] [3 4], [0 4] [1 4], [4 4] [3 4], [3 2] [3 3]}
-5 :  ([1 2] [0 3] [0 4] [4 4] [3 2] [2 3] [4 3])
-{[4 3] [3 3], [2 3] [3 3], [3 3] :start-node, [3 4] [3 3], [1 4] [2 4], [1 3] [1 4], [0 3] [1 3], [2 4] [3 4], [0 4] [1 4], [4 4] [3 4], [1 2] [1 3], [3 2] [3 3]}
-6 :  ([1 1] [0 2] [2 2] [0 3] [0 4] [4 4] [3 2] [2 3] [4 3])
-{[4 3] [3 3], [2 2] [1 2], [2 3] [3 3], [3 3] :start-node, [1 1] [1 2], [3 4] [3 3], [1 4] [2 4], [1 3] [1 4], [0 3] [1 3], [2 4] [3 4], [0 2] [1 2], [0 4] [1 4], [4 4] [3 4], [1 2] [1 3], [3 2] [3 3]}
-7 :  ([1 0] [0 1] [2 1] [0 2] [2 2] [0 3] [0 4] [4 4] [3 2] [2 3] [4 3])
-{[4 3] [3 3], [2 2] [1 2], [1 0] [1 1], [2 3] [3 3], [3 3] :start-node, [1 1] [1 2], [3 4] [3 3], [1 4] [2 4], [1 3] [1 4], [0 3] [1 3], [2 4] [3 4], [0 2] [1 2], [0 4] [1 4], [2 1] [1 1], [4 4] [3 4], [1 2] [1 3], [3 2] [3 3], [0 1] [1 1]}
-8 :  ([0 0] [2 0] [0 1] [2 1] [0 2] [2 2] [0 3] [0 4] [4 4] [3 2] [2 3] [4 3])
-{[4 3] [3 3], [2 2] [1 2], [0 0] [1 0], [1 0] [1 1], [2 3] [3 3], [3 3] :start-node, [1 1] [1 2], [3 4] [3 3], [1 4] [2 4], [1 3] [1 4], [0 3] [1 3], [2 4] [3 4], [0 2] [1 2], [2 0] [1 0], [0 4] [1 4], [2 1] [1 1], [4 4] [3 4], [1 2] [1 3], [3 2] [3 3], [0 1] [1 1]}
-user=>
-[[3 3] [3 4] [2 4] [1 4] [1 3] [1 2] [1 1] [1 0] [0 0]]
+(hs/p)
+Execution error (AbstractMethodError) at clojure.data.priority-map.PersistentPriorityMap/null (priority_map.clj:-1).
+Method clojure/data/priority_map/PersistentPriorityMap.invoke()Ljava/lang/Object; is abstract
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (intro-to-ec.heuristic-search)
+:error-while-loading intro-to-ec.heuristic-search
+Syntax error macroexpanding clojure.core/defn at (intro_to_ec/heuristic_search.clj:59:1).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (intro-to-ec.heuristic-search)
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading ()
+Refresh complete
+
+(hs/p2)
+Syntax error compiling at (form-init2792242459943764922.clj:2:1).
+No such var: hs/p2
 --------------------
-v

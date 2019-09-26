@@ -59,7 +59,7 @@
 
 (defn heuristic-dist-to-goal [current goal]
   (+ (Math/abs (- (get current 0)(get goal 0)))
-     (Math/abs (- (get current 0)(get goal 0)))))
+     (Math/abs (- (get current 1)(get goal 1)))))
 
 (defn make-grid-problem
   "Create an instance of a simple problem of moving on a grid towards
@@ -68,4 +68,5 @@
    or crossed."
   [min-range max-range wall-set]
   {:goal? origin-goal?
-   :make-children (partial grid-children min-range max-range wall-set)})
+   :make-children (partial grid-children min-range max-range wall-set)
+   :heuristic heuristic-dist-to-goal})
