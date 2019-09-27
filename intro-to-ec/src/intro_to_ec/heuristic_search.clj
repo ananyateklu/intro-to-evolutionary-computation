@@ -4,7 +4,7 @@
 
 (defn remove-previous-states
   [new-states frontier visited]
-  (remove (cset/union (set frontier) (set visited)) new-states))
+  (remove (cset/union (set (keys frontier)) (set visited)) new-states))
 
 (def depth-first-search
   {:get-next-node first
@@ -19,7 +19,7 @@
    :add-children concat})
 
 (def heuristic-search
-  {:get-next-node first
+  {:get-next-node (fn [n] (first(first n)))
    :add-children into})
 
 (defn generate-path
@@ -27,7 +27,6 @@
   (if (= :start-node (get came-from node))
     [node]
     (conj (generate-path came-from (get came-from node)) node)))
-
 
 (defn search
   [{:keys [get-next-node add-children]}
@@ -48,7 +47,7 @@
         (let [kids (remove-previous-states
                     (make-children current-node) frontier (keys came-from))]
           (recur
-           (add-children (pop frontier) kids),
+           (add-children (pop frontier) (map (fn [kid] [kid (heuristic kid goal)]) kids )),
            (reduce (fn [cf child] (assoc cf child current-node)) came-from kids),
            (inc num-calls)
             ))))))
