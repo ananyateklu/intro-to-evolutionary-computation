@@ -33,7 +33,8 @@
    {:keys [goal? make-children heuristic]}
    start-node
    max-calls
-   goal]
+   ]
+  (let [goal [0 0]]
   (loop [frontier (pm/priority-map start-node (heuristic start-node goal)),
          came-from {start-node :start-node},
          num-calls 0 ]
@@ -50,4 +51,4 @@
            (add-children (pop frontier) (map (fn [kid] [kid (heuristic kid goal)]) kids )),
            (reduce (fn [cf child] (assoc cf child current-node)) came-from kids),
            (inc num-calls)
-            ))))))
+            )))))))
