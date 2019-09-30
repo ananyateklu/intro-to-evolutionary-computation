@@ -2,6 +2,10 @@
   (:require [clojure.set :as cset]
             [clojure.data.priority-map :as pm]))
 
+;(require '[intro-to-ec.a-star-search :as astar])
+;(require '[intro-to-ec.grid-problem-with-walls :as walls])
+;(astar/search astar/a-star-search (walls/make-grid-problem -10 10 #{}) [3 3] 11)
+
 (defn remove-previous-states
   [new-states frontier visited]
   (remove (cset/union (set (keys frontier)) (set visited)) new-states))
@@ -50,15 +54,22 @@
          num-calls 0 ]
     (println num-calls ": " frontier)
     (println came-from)
-    (let [current-node (get-next-node frontier)]
+    (println "cost so far" cost-so-far)
+    (let [current-node (first (first frontier))]
       (cond
         (goal? current-node) (generate-path came-from current-node)
         (= num-calls max-calls) :max-calls-reached
         :else
         (let [kids (remove-previous-states
-                    (make-children current-node) frontier (keys came-from))]
+                    (make-children current-node) frontier (keys came-from))
+              firstvec (map first came-from)
+              nodedist "this should be the nodes paired with their values to get to that location"]
+          (println "firstvec" firstvec)
+
           (recur
            (add-children (pop frontier) (map (fn [kid] [kid (heuristic kid goal)]) kids )),
            (reduce (fn [cf child] (assoc cf child current-node)) came-from kids),
+           (reduce (fn [cf child] (assoc cf child current-node)) cost-so-far kids)
+          ; "reduce like child and current node, except for current node it will be cost of getting to that current child"
            (inc num-calls)
             )))))))

@@ -14,79 +14,119 @@ Executes the selection. Sends the selected text to the REPL.
 
 You can disable this help text in the settings.
 Atom Ink does not appear to be installed. Install it to get a better REPL experience.
-Starting REPL with lein in /home/teklu009/intro-to-evolutionary-computation/intro-to-ec
+Starting REPL with lein in /home/drumm040/CSCI4553/intro-to-evolutionary-computation/intro-to-ec
 bash: switchml: line 1: syntax error: unexpected end of file
 bash: error importing function definition for `switchml'
 bash: module: line 1: syntax error: unexpected end of file
 bash: error importing function definition for `module'
 bash: scl: line 1: syntax error: unexpected end of file
 bash: error importing function definition for `scl'
-nREPL server started on port 34263 on host 127.0.0.1 - nrepl://127.0.0.1:34263
+nREPL server started on port 35383 on host 127.0.0.1 - nrepl://127.0.0.1:35383
 Refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (intro-to-ec.search-with-solutions intro-to-ec.knapsack intro-to-ec.core intro-to-ec.core-test intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
-:error-while-loading intro-to-ec.heuristic-search
-Syntax error macroexpanding clojure.core/defn at (intro_to_ec/heuristic_search.clj:56:1).
+:reloading (intro-to-ec.search-with-solutions intro-to-ec.a-star-search intro-to-ec.knapsack intro-to-ec.core intro-to-ec.core-test intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
+:error-while-loading intro-to-ec.a-star-search
+Syntax error compiling at (intro_to_ec/a_star_search.clj:53:24).
 Refresh complete
-(require '[intro-to-ec.heuristic-search :as hs])
-Syntax error compiling at (form-init2792242459943764922.clj:1:1).
-namespace 'intro-to-ec.heuristic-search' not found
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
-:error-while-loading intro-to-ec.heuristic-search
-Syntax error macroexpanding clojure.core/defn at (intro_to_ec/heuristic_search.clj:56:1).
-Refresh complete
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
-:error-while-loading intro-to-ec.heuristic-search
-Syntax error compiling at (intro_to_ec/heuristic_search.clj:57:7).
-Refresh complete
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
-:error-while-loading intro-to-ec.heuristic-search
-Syntax error compiling at (intro_to_ec/heuristic_search.clj:57:8).
-Refresh complete
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
-Refresh complete
-
 (require '[intro-to-ec.heuristic-search :as hs])
 user=>
 nil
 (require '[intro-to-ec.grid-problem-with-walls :as walls])
 user=>
 nil
-(hs/p)
-Execution error (AbstractMethodError) at clojure.data.priority-map.PersistentPriorityMap/null (priority_map.clj:-1).
-Method clojure/data/priority_map/PersistentPriorityMap.invoke()Ljava/lang/Object; is abstract
-Refreshing code...
+(hs/search hs/heuristic-search (walls/make-grid-problem -10 10 #{}) [3 3] 10)
+0 :  {[3 3] 6}
+{[3 3] :start-node}
+1 :  {[2 3] 5, [3 2] 5, [4 3] 7, [3 4] 7}
+{[3 3] :start-node, [3 4] [3 3], [3 2] [3 3], [2 3] [3 3], [4 3] [3 3]}
+2 :  {[2 2] 4, [1 3] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[3 3] :start-node, [3 4] [3 3], [3 2] [3 3], [2 3] [3 3], [4 3] [3 3], [2 4] [2 3], [2 2] [2 3], [1 3] [2 3]}
+3 :  {[2 1] 3, [1 2] 3, [1 3] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[4 3] [3 3], [2 2] [2 3], [2 3] [3 3], [3 3] :start-node, [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3]}
+4 :  {[1 1] 2, [2 0] 2, [1 2] 3, [1 3] 4, [3 1] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[4 3] [3 3], [2 2] [2 3], [2 3] [3 3], [3 3] :start-node, [1 1] [2 1], [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [2 0] [2 1], [3 1] [2 1], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3]}
+5 :  {[1 0] 1, [0 1] 1, [2 0] 2, [1 2] 3, [1 3] 4, [3 1] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[4 3] [3 3], [2 2] [2 3], [1 0] [1 1], [2 3] [3 3], [3 3] :start-node, [1 1] [2 1], [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [2 0] [2 1], [3 1] [2 1], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3], [0 1] [1 1]}
+6 :  {[0 0] 0, [0 1] 1, [1 -1] 2, [2 0] 2, [1 2] 3, [1 3] 4, [3 1] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[4 3] [3 3], [2 2] [2 3], [0 0] [1 0], [1 0] [1 1], [2 3] [3 3], [3 3] :start-node, [1 1] [2 1], [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [1 -1] [1 0], [2 0] [2 1], [3 1] [2 1], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3], [0 1] [1 1]}
+user=>
+[[3 3] [2 3] [2 2] [2 1] [1 1] [1 0] [0 0]]
+Clearing all and then refreshing code...
 No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
 
-:reloading (intro-to-ec.heuristic-search)
+:reloading (intro-to-ec.search-with-solutions intro-to-ec.a-star-search intro-to-ec.knapsack intro-to-ec.core intro-to-ec.core-test intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
+:error-while-loading intro-to-ec.a-star-search
+Syntax error compiling at (intro_to_ec/a_star_search.clj:53:24).
+Refresh complete
+Clearing all and then refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (intro-to-ec.search-with-solutions intro-to-ec.a-star-search intro-to-ec.knapsack intro-to-ec.core intro-to-ec.core-test intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
+:error-while-loading intro-to-ec.a-star-search
+Syntax error compiling recur at (intro_to_ec/a_star_search.clj:60:11).
+Refresh complete
+Clearing all and then refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (intro-to-ec.search-with-solutions intro-to-ec.a-star-search intro-to-ec.knapsack intro-to-ec.core intro-to-ec.core-test intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
+Refresh complete
+(require '[intro-to-ec.a-star-search :as astar])
+user=>
+nil
+(astar/search astar/a-star-search (walls/make-grid-problem -10 10 #{}) [3 3] 10)
+0 :  {[3 3] 6}
+{[3 3] :start-node}
+1 :  {[2 3] 5, [3 2] 5, [4 3] 7, [3 4] 7}
+{[3 3] :start-node, [3 4] [3 3], [3 2] [3 3], [2 3] [3 3], [4 3] [3 3]}
+2 :  {[2 2] 4, [1 3] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[3 3] :start-node, [3 4] [3 3], [3 2] [3 3], [2 3] [3 3], [4 3] [3 3], [2 4] [2 3], [2 2] [2 3], [1 3] [2 3]}
+3 :  {[2 1] 3, [1 2] 3, [1 3] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[4 3] [3 3], [2 2] [2 3], [2 3] [3 3], [3 3] :start-node, [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3]}
+4 :  {[1 1] 2, [2 0] 2, [1 2] 3, [1 3] 4, [3 1] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[4 3] [3 3], [2 2] [2 3], [2 3] [3 3], [3 3] :start-node, [1 1] [2 1], [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [2 0] [2 1], [3 1] [2 1], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3]}
+5 :  {[1 0] 1, [0 1] 1, [2 0] 2, [1 2] 3, [1 3] 4, [3 1] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[4 3] [3 3], [2 2] [2 3], [1 0] [1 1], [2 3] [3 3], [3 3] :start-node, [1 1] [2 1], [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [2 0] [2 1], [3 1] [2 1], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3], [0 1] [1 1]}
+6 :  {[0 0] 0, [0 1] 1, [1 -1] 2, [2 0] 2, [1 2] 3, [1 3] 4, [3 1] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[4 3] [3 3], [2 2] [2 3], [0 0] [1 0], [1 0] [1 1], [2 3] [3 3], [3 3] :start-node, [1 1] [2 1], [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [1 -1] [1 0], [2 0] [2 1], [3 1] [2 1], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3], [0 1] [1 1]}
+user=>
+[[3 3] [2 3] [2 2] [2 1] [1 1] [1 0] [0 0]]
+Clearing all and then refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (intro-to-ec.search-with-solutions intro-to-ec.a-star-search intro-to-ec.knapsack intro-to-ec.core intro-to-ec.core-test intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
+Refresh complete
+(astar/search astar/a-star-search (walls/make-grid-problem -10 10 #{}) [3 3] 10)
+0 :  {[3 3] 6}
+{[3 3] :start-node}
+{[3 3] 0}
+1 :  {[2 3] 5, [3 2] 5, [4 3] 7, [3 4] 7}
+{[3 3] :start-node, [3 4] [3 3], [3 2] [3 3], [2 3] [3 3], [4 3] [3 3]}
+{[3 3] 0, [3 4] [3 3], [3 2] [3 3], [2 3] [3 3], [4 3] [3 3]}
+2 :  {[2 2] 4, [1 3] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[3 3] :start-node, [3 4] [3 3], [3 2] [3 3], [2 3] [3 3], [4 3] [3 3], [2 4] [2 3], [2 2] [2 3], [1 3] [2 3]}
+{[3 3] 0, [3 4] [3 3], [3 2] [3 3], [2 3] [3 3], [4 3] [3 3], [2 4] [2 3], [2 2] [2 3], [1 3] [2 3]}
+3 :  {[2 1] 3, [1 2] 3, [1 3] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[4 3] [3 3], [2 2] [2 3], [2 3] [3 3], [3 3] :start-node, [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3]}
+{[4 3] [3 3], [2 2] [2 3], [2 3] [3 3], [3 3] 0, [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3]}
+4 :  {[1 1] 2, [2 0] 2, [1 2] 3, [1 3] 4, [3 1] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[4 3] [3 3], [2 2] [2 3], [2 3] [3 3], [3 3] :start-node, [1 1] [2 1], [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [2 0] [2 1], [3 1] [2 1], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3]}
+{[4 3] [3 3], [2 2] [2 3], [2 3] [3 3], [3 3] 0, [1 1] [2 1], [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [2 0] [2 1], [3 1] [2 1], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3]}
+5 :  {[1 0] 1, [0 1] 1, [2 0] 2, [1 2] 3, [1 3] 4, [3 1] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[4 3] [3 3], [2 2] [2 3], [1 0] [1 1], [2 3] [3 3], [3 3] :start-node, [1 1] [2 1], [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [2 0] [2 1], [3 1] [2 1], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3], [0 1] [1 1]}
+{[4 3] [3 3], [2 2] [2 3], [1 0] [1 1], [2 3] [3 3], [3 3] 0, [1 1] [2 1], [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [2 0] [2 1], [3 1] [2 1], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3], [0 1] [1 1]}
+6 :  {[0 0] 0, [0 1] 1, [1 -1] 2, [2 0] 2, [1 2] 3, [1 3] 4, [3 1] 4, [3 2] 5, [2 4] 6, [4 3] 7, [3 4] 7}
+{[4 3] [3 3], [2 2] [2 3], [0 0] [1 0], [1 0] [1 1], [2 3] [3 3], [3 3] :start-node, [1 1] [2 1], [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [1 -1] [1 0], [2 0] [2 1], [3 1] [2 1], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3], [0 1] [1 1]}
+{[4 3] [3 3], [2 2] [2 3], [0 0] [1 0], [1 0] [1 1], [2 3] [3 3], [3 3] 0, [1 1] [2 1], [3 4] [3 3], [1 3] [2 3], [2 4] [2 3], [1 -1] [1 0], [2 0] [2 1], [3 1] [2 1], [2 1] [2 2], [1 2] [2 2], [3 2] [3 3], [0 1] [1 1]}
+user=>
+[[3 3] [2 3] [2 2] [2 1] [1 1] [1 0] [0 0]]
+Clearing all and then refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (intro-to-ec.search-with-solutions intro-to-ec.a-star-search intro-to-ec.knapsack intro-to-ec.core intro-to-ec.core-test intro-to-ec.heuristic-search intro-to-ec.exhaustive-search intro-to-ec.util intro-to-ec.cleaned-search intro-to-ec.random-search intro-to-ec.grid-search-problem intro-to-ec.cleaned-grid-search-problem intro-to-ec.greedy intro-to-ec.simple-search-algorithm intro-to-ec.grid-problem-with-walls)
 :error-while-loading intro-to-ec.heuristic-search
-Syntax error macroexpanding clojure.core/defn at (intro_to_ec/heuristic_search.clj:59:1).
-Refresh complete
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading (intro-to-ec.heuristic-search)
-Refresh complete
-Refreshing code...
-No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
-
-:reloading ()
-Refresh complete
-
-(hs/p2)
-Syntax error compiling at (form-init2792242459943764922.clj:2:1).
-No such var: hs/p2
+Refresh Warning: Execution error (IllegalStateException) at clojure.tools.namespace.repl/recover-ns (repl.clj:80).
+Alias astar already exists in namespace user, aliasing intro-to-ec.a-star-search
+Refresh Warning: Execution error (IllegalStateException) at clojure.tools.namespace.repl/recover-ns (repl.clj:80).
+Alias astar already exists in namespace user, aliasing intro-to-ec.a-star-search
 --------------------
