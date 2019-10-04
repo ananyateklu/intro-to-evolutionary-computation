@@ -31,8 +31,9 @@
       :add-children into})
 
 (defn generate-cost
-  [new-nodes current-node cost-so-far]
-  ()
+  [new-nodes current-node]
+  (Math/abs (+(-(get current-node 0)(get new-nodes 0))
+              (-(get current-node 1)(get new-nodes 1))))
   )
 
 (defn generate-path
@@ -52,9 +53,9 @@
          came-from {start-node :start-node},
          cost-so-far {start-node 0}
          num-calls 0 ]
-    (println num-calls ": " frontier)
-    (println came-from)
-    (println "cost so far" cost-so-far)
+    ;(println num-calls ": " frontier)
+    ;(println came-from)
+    ;(println "cost so far" cost-so-far)
     (let [current-node (first (first frontier))]
       (cond
         (goal? current-node) (generate-path came-from current-node)
@@ -62,14 +63,13 @@
         :else
         (let [kids (remove-previous-states
                     (make-children current-node) frontier (keys came-from))
-              firstvec (map first came-from)
-              nodedist "this should be the nodes paired with their values to get to that location"]
-          (println "firstvec" firstvec)
+              new-cost-so-far (reduce (fn [cf child] (assoc cf child (+ (generate-cost child current-node) (cost-so-far current-node))))cost-so-far kids)
+              ]
+              ;(println "new" new-cost-so-far) to see how new costs are put into the new-cost array
 
           (recur
-           (add-children (pop frontier) (map (fn [kid] [kid (heuristic kid goal)]) kids )),
+           (add-children (pop frontier) (map (fn [kid] [kid (+ (new-cost-so-far kid) (heuristic kid goal))]) kids )),
            (reduce (fn [cf child] (assoc cf child current-node)) came-from kids),
-           (reduce (fn [cf child] (assoc cf child current-node)) cost-so-far kids)
-          ; "reduce like child and current node, except for current node it will be cost of getting to that current child"
+           new-cost-so-far
            (inc num-calls)
             )))))))
