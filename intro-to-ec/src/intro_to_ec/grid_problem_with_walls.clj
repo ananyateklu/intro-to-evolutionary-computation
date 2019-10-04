@@ -61,6 +61,11 @@
   (+ (Math/abs (- (get current 0)(get goal 0)))
      (Math/abs (- (get current 1)(get goal 1)))))
 
+(defn heuristic-dist-vertical [current goal]
+       (+ (* (Math/abs (- (get current 0)(get goal 0))) 2)
+          (Math/abs (- (get current 1)(get goal 1)))))
+
+
 (defn make-grid-problem
   "Create an instance of a simple problem of moving on a grid towards
    the origin. The ranges specify the bounds on the grid world, and the
@@ -69,4 +74,5 @@
   [min-range max-range wall-set]
   {:goal? origin-goal?
    :make-children (partial grid-children min-range max-range wall-set)
-   :heuristic heuristic-dist-to-goal})
+   :heuristic heuristic-dist-to-goal
+   :heuristic-ver heuristic-dist-vertical})
